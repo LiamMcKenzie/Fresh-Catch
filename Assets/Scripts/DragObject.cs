@@ -9,10 +9,14 @@ public class DragObject : MonoBehaviour
 {
     //public bool mouseDown;
     //public int touchcount;
+    public float minimumXPos = -4;
+    public float maximumXPos = 4;
+    public float lerpXPos;
 
-    public float minimumZPos;
-    public float maximumZPos;
+    public float minimumZPos = -5f;
+    public float maximumZPos = 3.75f;
     public float lerpZPos;
+
 
     void Update(){
         if(Input.GetMouseButton(0)){
@@ -20,12 +24,13 @@ public class DragObject : MonoBehaviour
         }
 
         Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(transform.position.x, minimumXPos, maximumXPos);
         pos.z = Mathf.Clamp(transform.position.z, minimumZPos, maximumZPos);
         transform.position = pos;
 
         //mouseDown = Input.GetMouseButton(0);
         //touchcount = Input.touchCount;
-
+        lerpXPos = Mathf.InverseLerp(minimumXPos, maximumXPos, transform.position.x);
         lerpZPos = Mathf.InverseLerp(minimumZPos, maximumZPos, transform.position.z);
     }
 
@@ -34,6 +39,7 @@ public class DragObject : MonoBehaviour
     public static Vector3 GetMousePositionOnXZPlane() {
         float distance;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         if(XZPlane.Raycast (ray, out distance)) {
             Vector3 hitPoint = ray.GetPoint(distance);
             //Just double check to ensure the y position is exactly zero
@@ -42,4 +48,6 @@ public class DragObject : MonoBehaviour
         }
         return Vector3.zero;
     }
+
+    
 }   
