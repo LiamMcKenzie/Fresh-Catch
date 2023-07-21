@@ -11,11 +11,13 @@ public class DragObject : MonoBehaviour
     //public int touchcount;
     public float minimumXPos = -4;
     public float maximumXPos = 4;
-    public float lerpXPos;
 
     public float minimumZPos = -5f;
     public float maximumZPos = 3.75f;
+    
+    public float lerpXPos;
     public float lerpZPos;
+    
 
 
     void Update(){
