@@ -7,10 +7,26 @@ using UnityEngine;
 
 public class DragObject : MonoBehaviour
 {
+    //public bool mouseDown;
+    //public int touchcount;
+
+    public float minimumZPos;
+    public float maximumZPos;
+    public float lerpZPos;
+
     void Update(){
         if(Input.GetMouseButton(0)){
             transform.position = GetMousePositionOnXZPlane();
         }
+
+        Vector3 pos = transform.position;
+        pos.z = Mathf.Clamp(transform.position.z, minimumZPos, maximumZPos);
+        transform.position = pos;
+
+        //mouseDown = Input.GetMouseButton(0);
+        //touchcount = Input.touchCount;
+
+        lerpZPos = Mathf.InverseLerp(minimumZPos, maximumZPos, transform.position.z);
     }
 
     static Plane XZPlane = new Plane(Vector3.up, Vector3.zero);
