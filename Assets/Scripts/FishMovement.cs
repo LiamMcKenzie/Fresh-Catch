@@ -16,6 +16,7 @@ public class FishMovement : MonoBehaviour
     public float raycastAngleOffset = 45f;
 
     public GameObject bobber;
+    public float FOV = 90;
 
     public  bool[] rayHits = new bool[3];
     void Start()
@@ -31,10 +32,10 @@ public class FishMovement : MonoBehaviour
         
         if(timer <= 0f)
         {
+            CheckFOV();
             RaycastTurnAroundCheck();
             //RandomMovement();
         }
-        CheckFOV();
     }
 
     void RandomMovement()
@@ -129,11 +130,10 @@ public class FishMovement : MonoBehaviour
     {
         Vector3 targetDir = bobber.transform.position - transform.position; 
         float angleToPlayer = (Vector3.Angle(targetDir, transform.forward)); 
-        if(angleToPlayer >= -90 && angleToPlayer <= 90)
+        if(angleToPlayer >= -FOV/2 && angleToPlayer <= FOV/2)
         {
             Debug.Log("Player in sight!");
         }
-        // 180° FOV 
     }
     
 }

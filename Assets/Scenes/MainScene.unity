@@ -1798,6 +1798,7 @@ MonoBehaviour:
   raycastDistance: 5
   raycastAngleOffset: 45
   bobber: {fileID: 1094075017}
+  FOV: 180
   rayHits: 000000
 --- !u!1 &1014595758640650043
 GameObject:
