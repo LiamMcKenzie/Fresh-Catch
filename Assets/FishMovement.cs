@@ -12,6 +12,9 @@ public class FishMovement : MonoBehaviour
     public float timer;
     public Quaternion targetRotation;
 
+    public float raycastDistance = 5f;
+    public float raycastAngleOffset = 45f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,11 +28,9 @@ public class FishMovement : MonoBehaviour
         
         if(timer <= 0f)
         {
+            RaycastTurnAroundCheck();
             StartCoroutine(RandomMovementCoroutine());
         }
-        Debug.DrawRay(transform.position, (Quaternion.Euler(0f, 45f, 0f) * transform.forward) * 5, Color.green);
-        Debug.DrawRay(transform.position, (Quaternion.Euler(0f, -45f, 0f) * transform.forward) * 5, Color.green);
-        Debug.DrawRay(transform.position, transform.forward * 5, Color.green);
     }
 
     IEnumerator RandomMovementCoroutine()
@@ -53,5 +54,32 @@ public class FishMovement : MonoBehaviour
         //moves forwards in the random direction
         Vector3 forwardDirection = transform.forward;
         rb.velocity = forwardDirection.normalized * moveSpeed;        
+    }
+
+    void RaycastTurnAroundCheck()
+    {
+        bool hitSomething = false;
+        Vector3[] rayDirections = new Vector3[3];
+        rayDirections[0] = transform.forward;
+        rayDirections[1] = Quaternion.Euler(0f, -raycastAngleOffset, 0f) * transform.forward;
+        rayDirections[2] = Quaternion.Euler(0f, raycastAngleOffset, 0f) * transform.forward;
+
+        for (int i = 0; i < 3; i++)
+        {
+            Debug.DrawRay(transform.position, rayDirections[i] * raycastDistance, Color.green, 2);
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, rayDirections[i], out hit, raycastDistance))
+            {
+                hitSomething = true;
+                Debug.Log("Raycast " + (i + 1) + " hit: " + hit.collider.name);
+                break;
+            }
+        }
+
+        if (!hitSomething)
+        {
+            //StartCoroutine(RandomMovementCoroutine());
+        }
     }
 }
