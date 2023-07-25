@@ -97,7 +97,7 @@ public class FishMovement : MonoBehaviour
             }
         }
 
-        if(rayHits[1] && rayHits[2])
+        if(rayHits[1] && rayHits[2] || rayHits[0])
         {
             TurnAround(180f);
             Debug.Log("turn around");
