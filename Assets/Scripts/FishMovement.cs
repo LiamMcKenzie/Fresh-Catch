@@ -15,6 +15,7 @@ public class FishMovement : MonoBehaviour
     public float raycastDistance = 5f;
     public float raycastAngleOffset = 45f;
 
+    public  bool[] rayHits = new bool[3];
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,19 +30,35 @@ public class FishMovement : MonoBehaviour
         if(timer <= 0f)
         {
             RaycastTurnAroundCheck();
-            StartCoroutine(RandomMovementCoroutine());
+            //RandomMovement();
         }
     }
 
-    IEnumerator RandomMovementCoroutine()
+    void RandomMovement()
     {
-        timer = swimInterval;
-        
         //randomizes a new direction
         float randomRotationY = Random.Range(0f, 360f);
         targetRotation = Quaternion.Euler(0f, randomRotationY, 0f);
 
         //rotates towards the random direction
+        StartCoroutine(MovementCoroutine());
+    }
+
+    void TurnAround(float newRotation)
+    {
+        //passes in new direction
+       
+        Debug.Log(transform.eulerAngles.y + "+" +  newRotation);
+        targetRotation = Quaternion.Euler(0f, transform.eulerAngles.y + newRotation, 0f);
+
+        //rotates towards the new direction
+        StartCoroutine(MovementCoroutine());
+    }
+
+    IEnumerator MovementCoroutine()
+    {
+        timer = swimInterval;
+        
         while (Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -50,15 +67,16 @@ public class FishMovement : MonoBehaviour
 
         //waits a second before moving
         yield return new WaitForSeconds(1f);
+        
 
         //moves forwards in the random direction
-        Vector3 forwardDirection = transform.forward;
-        rb.velocity = forwardDirection.normalized * moveSpeed;        
+        rb.velocity = transform.forward.normalized * moveSpeed;  
     }
 
     void RaycastTurnAroundCheck()
     {
         bool hitSomething = false;
+       
         Vector3[] rayDirections = new Vector3[3];
         rayDirections[0] = transform.forward;
         rayDirections[1] = Quaternion.Euler(0f, -raycastAngleOffset, 0f) * transform.forward;
@@ -69,17 +87,37 @@ public class FishMovement : MonoBehaviour
             Debug.DrawRay(transform.position, rayDirections[i] * raycastDistance, Color.green, 2);
 
             RaycastHit hit;
+            rayHits[i] = false;
             if (Physics.Raycast(transform.position, rayDirections[i], out hit, raycastDistance))
             {
                 hitSomething = true;
+                rayHits[i] = true;
                 Debug.Log("Raycast " + (i + 1) + " hit: " + hit.collider.name);
-                break;
+                //break;
             }
         }
 
-        if (!hitSomething)
+        if(rayHits[1] && rayHits[2])
         {
-            //StartCoroutine(RandomMovementCoroutine());
+            TurnAround(180f);
+            Debug.Log("turn around");
+            //both hit
+        }
+        else if(rayHits[1] && !rayHits[2])
+        {
+            TurnAround(90f);
+            Debug.Log("turn right");
+            //only left raycast hit
+        }
+        else if(rayHits[2] && !rayHits[1])
+        {
+            TurnAround(-90f);
+            Debug.Log("turn left");
+            //only right raycast hit
+        }
+        else if (!hitSomething)
+        {
+            RandomMovement();
         }
     }
 }
