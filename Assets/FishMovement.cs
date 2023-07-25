@@ -27,6 +27,9 @@ public class FishMovement : MonoBehaviour
         {
             StartCoroutine(RandomMovementCoroutine());
         }
+        Debug.DrawRay(transform.position, (Quaternion.Euler(0f, 45f, 0f) * transform.forward) * 5, Color.green);
+        Debug.DrawRay(transform.position, (Quaternion.Euler(0f, -45f, 0f) * transform.forward) * 5, Color.green);
+        Debug.DrawRay(transform.position, transform.forward * 5, Color.green);
     }
 
     IEnumerator RandomMovementCoroutine()
