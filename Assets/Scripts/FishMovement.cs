@@ -15,6 +15,8 @@ public class FishMovement : MonoBehaviour
     public float raycastDistance = 5f;
     public float raycastAngleOffset = 45f;
 
+    public GameObject bobber;
+
     public  bool[] rayHits = new bool[3];
     void Start()
     {
@@ -32,6 +34,7 @@ public class FishMovement : MonoBehaviour
             RaycastTurnAroundCheck();
             //RandomMovement();
         }
+        CheckFOV();
     }
 
     void RandomMovement()
@@ -48,7 +51,7 @@ public class FishMovement : MonoBehaviour
     {
         //passes in new direction
        
-        Debug.Log(transform.eulerAngles.y + "+" +  newRotation);
+        //Debug.Log(transform.eulerAngles.y + "+" +  newRotation);
         targetRotation = Quaternion.Euler(0f, transform.eulerAngles.y + newRotation, 0f);
 
         //rotates towards the new direction
@@ -92,7 +95,7 @@ public class FishMovement : MonoBehaviour
             {
                 hitSomething = true;
                 rayHits[i] = true;
-                Debug.Log("Raycast " + (i + 1) + " hit: " + hit.collider.name);
+                //Debug.Log("Raycast " + (i + 1) + " hit: " + hit.collider.name);
                 //break;
             }
         }
@@ -120,4 +123,17 @@ public class FishMovement : MonoBehaviour
             RandomMovement();
         }
     }
+
+    //https://discussions.unity.com/t/check-if-player-is-in-enemys-fov/182973
+    void CheckFOV()
+    {
+        Vector3 targetDir = bobber.transform.position - transform.position; 
+        float angleToPlayer = (Vector3.Angle(targetDir, transform.forward)); 
+        if(angleToPlayer >= -90 && angleToPlayer <= 90)
+        {
+            Debug.Log("Player in sight!");
+        }
+        // 180° FOV 
+    }
+    
 }
