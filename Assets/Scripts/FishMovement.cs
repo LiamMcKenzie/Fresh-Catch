@@ -4,23 +4,28 @@ using UnityEngine;
 
 public class FishMovement : MonoBehaviour
 {
+    [Header("Movement")]
     public float moveSpeed = 5f;
     public float swimInterval = 3f;
     public float rotationSpeed = 5f;
 
     private Rigidbody rb;
     public float timer;
+
     public Quaternion targetRotation;
 
     public float raycastDistance = 5f;
     public float raycastAngleOffset = 45f;
+    public  bool[] rayHits = new bool[3];
 
+    [Header("Field of View")]
     public GameObject bobber;
     public float FOV = 90;
     public bool playerInFov = false;
     public GameObject alertIcon; 
 
-    public  bool[] rayHits = new bool[3];
+    public float timeInFOV;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -30,15 +35,24 @@ public class FishMovement : MonoBehaviour
 
     void Update()
     {
-        timer -= Time.deltaTime;
         CheckFOV();
-        
-        if(timer <= 0f)
+
+        if( timeInFOV >= 1)
         {
-            
-            RaycastTurnAroundCheck();
-            //RandomMovement();
+            FacePlayer();
         }
+        else{
+            timer -= Time.deltaTime;
+            
+            if(timer <= 0f)
+            {
+                
+                RaycastTurnAroundCheck();
+                //RandomMovement();
+            }
+        }
+        
+        
     }
 
     void RandomMovement()
@@ -79,6 +93,32 @@ public class FishMovement : MonoBehaviour
         //moves forwards in the random direction
         rb.velocity = transform.forward.normalized * moveSpeed;  
     }
+
+    //https://discussions.unity.com/t/how-to-use-quaternion-slerp-with-transform-lookat/184419
+    void FacePlayer()
+    {
+        Vector3 targetPostition = new Vector3( bobber.transform.position.x, this.transform.position.y, bobber.transform.position.z ) ;
+        Quaternion lookOnLook = Quaternion.LookRotation(targetPostition - transform.position);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, rotationSpeed * Time.deltaTime);
+    }
+
+    /*
+    IEnumerator FacePlayer()
+    {
+        //Vector3 targetPostition = new Vector3( target.position.x, this.transform.position.y, target.position.z ) ;
+
+        //this.transform.LookAt(targetPostition);
+        
+        
+        
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            yield return null;
+        }
+    }*/
+    
 
     void RaycastTurnAroundCheck()
     {
@@ -137,11 +177,13 @@ public class FishMovement : MonoBehaviour
         {
             playerInFov = true;
             alertIcon.SetActive(true);
+            timeInFOV += Time.deltaTime;
             //Debug.Log("Player in sight!");
         }
         else{
             playerInFov = false;
             alertIcon.SetActive(false);
+            timeInFOV = 0;
         }
     }
     
