@@ -37,7 +37,7 @@ public class FishMovement : MonoBehaviour
     {
         CheckFOV();
 
-        if( timeInFOV >= 1)
+        if( timeInFOV >= 1f)
         {
             FacePlayer();
         }
@@ -52,7 +52,12 @@ public class FishMovement : MonoBehaviour
             }
         }
         
-        
+        if(timeInFOV >= 5f)
+        {
+            alertIcon.GetComponent<Renderer>().material.color = Color.yellow;
+        }else{
+            alertIcon.GetComponent<Renderer>().material.color = Color.red;
+        }
     }
 
     void RandomMovement()
