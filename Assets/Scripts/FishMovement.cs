@@ -25,6 +25,7 @@ public class FishMovement : MonoBehaviour
     public GameObject alertIcon; 
 
     public float timeInFOV;
+    public float distance;
 
     void Start()
     {
@@ -177,8 +178,9 @@ public class FishMovement : MonoBehaviour
     void CheckFOV()
     {
         Vector3 targetDir = bobber.transform.position - transform.position; 
+        distance = Vector3.Distance (bobber.transform.position, transform.position);
         float angleToPlayer = (Vector3.Angle(targetDir, transform.forward)); 
-        if(angleToPlayer >= -FOV/2 && angleToPlayer <= FOV/2)
+        if(angleToPlayer >= -FOV/2 && angleToPlayer <= FOV/2 && distance < 7)
         {
             playerInFov = true;
             alertIcon.SetActive(true);
