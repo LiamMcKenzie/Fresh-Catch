@@ -192,7 +192,9 @@ public class FishMovement : MonoBehaviour
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPostition, 2 * Time.deltaTime);
 
-            }else{
+            }
+            if(distance < 2f)
+            {
                 transform.position = Vector3.MoveTowards(transform.position, targetPostition, -1 * Time.deltaTime);
             }
             //Debug.Log("Player in sight!");
