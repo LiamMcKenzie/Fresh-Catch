@@ -17,7 +17,8 @@ public class FishMovement : MonoBehaviour
 
     public GameObject bobber;
     public float FOV = 90;
-    public bool playerInFov = false; 
+    public bool playerInFov = false;
+    public GameObject alertIcon; 
 
     public  bool[] rayHits = new bool[3];
     void Start()
@@ -135,11 +136,14 @@ public class FishMovement : MonoBehaviour
         if(angleToPlayer >= -FOV/2 && angleToPlayer <= FOV/2)
         {
             playerInFov = true;
+            alertIcon.SetActive(true);
             //Debug.Log("Player in sight!");
         }
         else{
             playerInFov = false;
+            alertIcon.SetActive(false);
         }
     }
     
 }
+
