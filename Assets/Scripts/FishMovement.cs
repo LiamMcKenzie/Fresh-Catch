@@ -177,14 +177,24 @@ public class FishMovement : MonoBehaviour
     //https://discussions.unity.com/t/check-if-player-is-in-enemys-fov/182973
     void CheckFOV()
     {
-        Vector3 targetDir = bobber.transform.position - transform.position; 
-        distance = Vector3.Distance (bobber.transform.position, transform.position);
+        Vector3 targetPostition = new Vector3( bobber.transform.position.x, this.transform.position.y, bobber.transform.position.z ) ;
+        Vector3 targetDir = targetPostition - transform.position; 
+
+        distance = Vector3.Distance (targetPostition, transform.position);
         float angleToPlayer = (Vector3.Angle(targetDir, transform.forward)); 
-        if(angleToPlayer >= -FOV/2 && angleToPlayer <= FOV/2 && distance < 7)
+
+        if(angleToPlayer >= -FOV/2 && angleToPlayer <= FOV/2 && distance < 8)
         {
             playerInFov = true;
             alertIcon.SetActive(true);
             timeInFOV += Time.deltaTime;
+            if(distance > 3f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, targetPostition, 2 * Time.deltaTime);
+
+            }else{
+                transform.position = Vector3.MoveTowards(transform.position, targetPostition, -1 * Time.deltaTime);
+            }
             //Debug.Log("Player in sight!");
         }
         else{
