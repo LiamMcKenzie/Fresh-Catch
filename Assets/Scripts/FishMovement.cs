@@ -188,12 +188,12 @@ public class FishMovement : MonoBehaviour
             playerInFov = true;
             alertIcon.SetActive(true);
             timeInFOV += Time.deltaTime;
-            if(distance > 3f)
+            if(distance > 3f && timeInFOV > 1)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPostition, 2 * Time.deltaTime);
 
             }
-            if(distance < 2f)
+            if(distance < 2f && timeInFOV > 1)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPostition, -1 * Time.deltaTime);
             }
