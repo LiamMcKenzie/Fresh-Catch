@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class SwipeDetect : MonoBehaviour
 {
+    public static SwipeDetect instance;
     public Vector3 mouseDelta = Vector3.zero;
 
     private Vector3 lastMousePosition = Vector3.zero;
@@ -17,6 +18,13 @@ public class SwipeDetect : MonoBehaviour
     public float timer = 1;
     public float swipeGracePeriod = 0.05f;
 
+    void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -43,9 +51,6 @@ public class SwipeDetect : MonoBehaviour
             swipeGracePeriod -= Time.deltaTime;
         }
 
-        
-
-        
         //mouseDelta = (new Vector2(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height) - newMousePosition) * 1000 * Time.deltaTime;
 
         //lastMousePosition = Input.mousePosition;   

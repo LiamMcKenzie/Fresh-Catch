@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FishMovement : MonoBehaviour
 {
+    private SwipeDetect swipeManager;
     [Header("Movement")]
     public float moveSpeed = 5f;
     public float swimInterval = 3f;
@@ -28,16 +29,29 @@ public class FishMovement : MonoBehaviour
     public float timeInFOV;
     public float distance;
 
+    [Header("Catching")]
+    public float catchPeriod;
+    public float catchTimer;
+    public bool isCatching = false;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         timer = swimInterval;
-        
+        swipeManager = SwipeDetect.instance;
     }
 
     void Update()
     {
         CheckFOV();
+
+        if(catchTimer < 0)
+        {
+            catchTimer = -1;
+        }else{
+            catchTimer -= Time.deltaTime;
+        }
 
         if( timeInFOV >= 1f)
         {
@@ -56,9 +70,22 @@ public class FishMovement : MonoBehaviour
         
         if(timeInFOV >= 5f)
         {
-            alertIcon.GetComponent<Renderer>().material.color = Color.yellow;
+            if(isCatching == false)
+            {
+                catchTimer = catchPeriod;
+                alertIcon.GetComponent<Renderer>().material.color = Color.yellow;
+                isCatching = true;
+            }
         }else{
             alertIcon.GetComponent<Renderer>().material.color = Color.red;
+            isCatching = false;
+        }
+
+        if(catchTimer > 0 && swipeManager.isSwipingUp)
+        {
+            Debug.Log("hi");
+            CatchFish();
+            Debug.Log(rb.velocity);
         }
     }
 
@@ -209,6 +236,12 @@ public class FishMovement : MonoBehaviour
             alertIcon.SetActive(false);
             timeInFOV = 0;
         }
+    }
+
+    void CatchFish()
+    {
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        rb.AddForce(transform.up * 200);
     }
     
 }
