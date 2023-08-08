@@ -15,14 +15,23 @@ public class MoveToPosition : MonoBehaviour
 
     public float lerpXPos;
     public float lerpZPos;
-
+    
+    public LineRenderer lineRenderer;
 
     public DragObject DragObjectScript;
+
+    public GameObject lineAnchor;
 
     // Update is called once per frame
 
     void Update()
     {
+        lineRenderer.positionCount = 2;
+        lineRenderer.useWorldSpace = true;  
+
+        lineRenderer.SetPosition(0, transform.position); //x,y and z position of the starting point of the line
+        lineRenderer.SetPosition(1, lineAnchor.transform.position);
+
         target = transform.position;
         
         lerpXPos = Mathf.Lerp(minimumXPos, maximumXPos, DragObjectScript.lerpXPos);
