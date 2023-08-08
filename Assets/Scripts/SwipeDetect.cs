@@ -10,18 +10,40 @@ public class SwipeDetect : MonoBehaviour
 
     private Vector3 lastMousePosition = Vector3.zero;
 
+    public Vector2 newMousePosition;
+
     public float swipeSensitivity = 0.3f;
     public bool isSwipingUp = false;
+    public float timer = 1;
 
     // Update is called once per frame
     void Update()
     {
-        mouseDelta = (Input.mousePosition - lastMousePosition) * Time.deltaTime;
+        if(timer < 0)
+        {
+            timer = -1;
+        }else{
+            timer -= Time.deltaTime;
+
+        }
+
+        //mouseDelta = (Input.mousePosition - lastMousePosition) * Time.deltaTime;
+        mouseDelta = (new Vector2(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height) - newMousePosition) * 1000 * Time.deltaTime;
 
         lastMousePosition = Input.mousePosition;   
-
+        newMousePosition = new Vector2(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height);
         
-        isSwipingUp = (mouseDelta.y > swipeSensitivity);
+        if(mouseDelta.y > swipeSensitivity)
+        {
+            timer = 1;
+        }
+        //isSwipingUp = (mouseDelta.y > swipeSensitivity);
+        if(timer > 0)
+        {
+            isSwipingUp = true;
+        }else{
+            isSwipingUp = false;
+        }
         
     }
 }

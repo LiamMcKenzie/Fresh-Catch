@@ -8,6 +8,7 @@ public class FishMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float swimInterval = 3f;
     public float rotationSpeed = 5f;
+    public float swimDelay = 1f;
 
     private Rigidbody rb;
     public float timer;
@@ -93,7 +94,7 @@ public class FishMovement : MonoBehaviour
         }
 
         //waits a second before moving
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(swimDelay);
         
 
         //moves forwards in the random direction
