@@ -15,6 +15,7 @@ public class SwipeDetect : MonoBehaviour
     public float swipeSensitivity = 0.3f;
     public bool isSwipingUp = false;
     public float timer = 1;
+    public float swipeGracePeriod = 0.05f;
 
     // Update is called once per frame
     void Update()
@@ -24,13 +25,30 @@ public class SwipeDetect : MonoBehaviour
             timer = -1;
         }else{
             timer -= Time.deltaTime;
-
+        }
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            swipeGracePeriod = 0.05f;
         }
 
-        //mouseDelta = (Input.mousePosition - lastMousePosition) * Time.deltaTime;
-        mouseDelta = (new Vector2(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height) - newMousePosition) * 1000 * Time.deltaTime;
 
-        lastMousePosition = Input.mousePosition;   
+        if(swipeGracePeriod < 0f)
+        {
+            mouseDelta = (new Vector2(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height) - newMousePosition) * 1000 * Time.deltaTime;
+            swipeGracePeriod = -1;
+        }
+        else
+        {
+            swipeGracePeriod -= Time.deltaTime;
+        }
+
+        
+
+        
+        //mouseDelta = (new Vector2(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height) - newMousePosition) * 1000 * Time.deltaTime;
+
+        //lastMousePosition = Input.mousePosition;   
         newMousePosition = new Vector2(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height);
         
         if(mouseDelta.y > swipeSensitivity)
@@ -44,6 +62,10 @@ public class SwipeDetect : MonoBehaviour
         }else{
             isSwipingUp = false;
         }
+
+        
         
     }
+
+    
 }
