@@ -144,8 +144,12 @@ public class FishMovement : MonoBehaviour
             rayHits[i] = false;
             if (Physics.Raycast(transform.position, rayDirections[i], out hit, raycastDistance))
             {
-                hitSomething = true;
-                rayHits[i] = true;
+                if(hit.transform.tag == "Obstacle") 
+                {
+                    hitSomething = true;
+                    rayHits[i] = true;
+                }
+
                 //Debug.Log("Raycast " + (i + 1) + " hit: " + hit.collider.name);
                 //break;
             }
