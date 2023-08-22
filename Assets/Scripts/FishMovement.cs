@@ -81,12 +81,22 @@ public class FishMovement : MonoBehaviour
             isCatching = false;
         }
 
-        if(catchTimer > 0 && swipeManager.isSwipingUp)
+        if(catchTimer > 0)
         {
-            Debug.Log("hi");
-            CatchFish();
-            Debug.Log(rb.velocity);
+            if(!CatchingManager.instance.fishes.Contains(gameObject))
+            {
+                CatchingManager.instance.fishes.Add(gameObject);
+            }
+            //CatchFish();
+        }else{
+            if(CatchingManager.instance.fishes.Contains(gameObject))
+            {
+                TurnAround(180);
+                isCatching = false;
+                CatchingManager.instance.fishes.Remove(gameObject);
+            }
         }
+
     }
 
     void RandomMovement()
