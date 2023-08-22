@@ -8,6 +8,7 @@ public class CatchingManager : MonoBehaviour
     public List<GameObject> fishes = new List<GameObject>();
     Animator camAnimator;
     Animator rodAnimator;
+    DragObject rodMovement;
     public GameObject fishingRod;
 
 
@@ -20,6 +21,7 @@ public class CatchingManager : MonoBehaviour
         }
         camAnimator = Camera.main.GetComponent<Animator>();
         rodAnimator = fishingRod.GetComponent<Animator>();
+        rodMovement = fishingRod.GetComponent<DragObject>();
     }
 
     void Start()
@@ -32,11 +34,17 @@ public class CatchingManager : MonoBehaviour
         if(SwipeDetect.instance.isSwipingUp && fishes.Count != 0 && camAnimator.GetBool("Catching") == false)
         {
             rodAnimator.enabled = true;
+            rodMovement.enabled = false;
             camAnimator.SetBool("Catching", true);
             camAnimator.SetTrigger("LookUp");
 
             rodAnimator.SetTrigger("Catch");
+        }
 
+        if(camAnimator.GetBool("Catching") == false)
+        {
+            rodAnimator.enabled = false;
+            rodMovement.enabled = true;
         }
 
     }
