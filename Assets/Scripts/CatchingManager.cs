@@ -8,8 +8,11 @@ public class CatchingManager : MonoBehaviour
     public List<GameObject> fishes = new List<GameObject>();
     Animator camAnimator;
     Animator rodAnimator;
+    Animator fishAnimator;
     DragObject rodMovement;
     public GameObject fishingRod;
+
+    public GameObject fish;
 
 
 
@@ -21,6 +24,7 @@ public class CatchingManager : MonoBehaviour
         }
         camAnimator = Camera.main.GetComponent<Animator>();
         rodAnimator = fishingRod.GetComponent<Animator>();
+        fishAnimator = fish.GetComponent<Animator>();
         rodMovement = fishingRod.GetComponent<DragObject>();
     }
 
@@ -33,12 +37,14 @@ public class CatchingManager : MonoBehaviour
     {
         if(SwipeDetect.instance.isSwipingUp && fishes.Count != 0 && camAnimator.GetBool("Catching") == false)
         {
-            rodAnimator.enabled = true;
-            rodMovement.enabled = false;
-            camAnimator.SetBool("Catching", true);
-            camAnimator.SetTrigger("LookUp");
+            StartCoroutine(Catching());
+            //rodAnimator.enabled = true;
+            //rodMovement.enabled = false;
+            //camAnimator.SetBool("Catching", true);
+            //camAnimator.SetTrigger("LookUp");
 
-            rodAnimator.SetTrigger("Catch");
+            //rodAnimator.SetTrigger("Catch");
+            //fishAnimator.SetTrigger("LookUp");
         }
 
         if(camAnimator.GetBool("Catching") == false)
@@ -47,5 +53,22 @@ public class CatchingManager : MonoBehaviour
             rodMovement.enabled = true;
         }
 
+    }
+
+    //StartCoroutine(SendRequest());
+    private IEnumerator Catching(){
+        rodAnimator.enabled = true;
+        rodMovement.enabled = false;
+        camAnimator.SetBool("Catching", true);
+
+        camAnimator.SetTrigger("LookUp");
+        rodAnimator.SetTrigger("Catch");
+        
+        yield return new WaitForSeconds(1);
+        fishAnimator.SetTrigger("LookUp");
+        Debug.Log("hi");
+        yield return new WaitForSeconds(4);
+        Debug.Log("look down");
+        camAnimator.SetTrigger("LookDown");
     }
 }
