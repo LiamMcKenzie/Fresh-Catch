@@ -2683,7 +2683,7 @@ RectTransform:
   m_Children:
   - {fileID: 281428037}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3075,7 +3075,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1568368880
 MonoBehaviour:
@@ -3339,7 +3339,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1822356540
 GameObject:
@@ -4038,6 +4038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929dbbd14222c514da61d65e2ad603ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fish: {fileID: 11400000, guid: b0259764bef223a4db2a4750a5670639, type: 2}
   moveSpeed: 10
   swimInterval: 4
   rotationSpeed: 5

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FishMovement : MonoBehaviour
 {
+    public Fish fish;
+
     private SwipeDetect swipeManager;
     [Header("Movement")]
     public float moveSpeed = 5f;

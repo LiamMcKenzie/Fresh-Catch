@@ -42,6 +42,8 @@ public class CatchingManager : MonoBehaviour
         if(SwipeDetect.instance.isSwipingUp && fishes.Count != 0 && camAnimator.GetBool("Catching") == false)
         {
             StartCoroutine(Catching());
+            Debug.Log(fishes[0].GetComponent<FishMovement>().fish.name);
+            fishes.RemoveAt(0);
             //rodAnimator.enabled = true;
             //rodMovement.enabled = false;
             //camAnimator.SetBool("Catching", true);
@@ -65,13 +67,14 @@ public class CatchingManager : MonoBehaviour
 
     //StartCoroutine(SendRequest());
     private IEnumerator Catching(){
+        camAnimator.SetBool("Catching", true);
+
         bobberAnimator.enabled = true;
         //bobberMovement.enabled = false;
 
         rodAnimator.enabled = true;
         rodMovement.enabled = false;
 
-        camAnimator.SetBool("Catching", true);
 
         bobberAnimator.SetTrigger("Catch");
 
