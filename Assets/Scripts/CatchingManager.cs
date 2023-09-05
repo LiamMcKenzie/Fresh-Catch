@@ -8,11 +8,17 @@ public class CatchingManager : MonoBehaviour
     public List<GameObject> fishes = new List<GameObject>();
     Animator camAnimator;
     Animator rodAnimator;
-    Animator fishAnimator;
-    DragObject rodMovement;
-    public GameObject fishingRod;
+    Animator uiFishAnimator;
+    Animator bobberAnimator;
 
-    public GameObject fish;
+    DragObject rodMovement;
+    
+    MoveToPosition bobberMovement;
+
+    public GameObject fishingRod;
+    public GameObject bobber;
+
+    public GameObject uiFish;
 
 
 
@@ -24,13 +30,11 @@ public class CatchingManager : MonoBehaviour
         }
         camAnimator = Camera.main.GetComponent<Animator>();
         rodAnimator = fishingRod.GetComponent<Animator>();
-        fishAnimator = fish.GetComponent<Animator>();
-        rodMovement = fishingRod.GetComponent<DragObject>();
-    }
+        uiFishAnimator = uiFish.GetComponent<Animator>();
+        bobberAnimator = bobber.GetComponent<Animator>();
 
-    void Start()
-    {
-        rodAnimator.enabled = false;
+        rodMovement = fishingRod.GetComponent<DragObject>();
+        bobberMovement = bobber.GetComponent<MoveToPosition>();
     }
 
     void Update()
@@ -49,26 +53,39 @@ public class CatchingManager : MonoBehaviour
 
         if(camAnimator.GetBool("Catching") == false)
         {
+            bobberAnimator.enabled = false;
+            bobberMovement.enabled = true;
+
             rodAnimator.enabled = false;
             rodMovement.enabled = true;
+
         }
 
     }
 
     //StartCoroutine(SendRequest());
     private IEnumerator Catching(){
+        bobberAnimator.enabled = true;
+        //bobberMovement.enabled = false;
+
         rodAnimator.enabled = true;
         rodMovement.enabled = false;
+
         camAnimator.SetBool("Catching", true);
 
-        camAnimator.SetTrigger("LookUp");
+        bobberAnimator.SetTrigger("Catch");
+
         rodAnimator.SetTrigger("Catch");
+
+        yield return new WaitForSeconds(0.1f);
+
+        camAnimator.SetTrigger("LookUp");
         
         yield return new WaitForSeconds(1);
-        fishAnimator.SetTrigger("LookUp");
-        Debug.Log("hi");
+        uiFishAnimator.SetTrigger("LookUp");
         yield return new WaitForSeconds(4);
-        Debug.Log("look down");
+        uiFishAnimator.SetTrigger("LookDown");
         camAnimator.SetTrigger("LookDown");
+        camAnimator.SetBool("Catching", false);
     }
 }

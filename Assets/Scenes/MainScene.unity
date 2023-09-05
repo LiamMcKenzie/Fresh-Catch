@@ -757,7 +757,7 @@ Transform:
   - {fileID: 1034065191}
   - {fileID: 463945997}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -1287,7 +1287,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -1732,7 +1732,7 @@ GameObject:
   - component: {fileID: 1070173392}
   - component: {fileID: 1070173391}
   m_Layer: 0
-  m_Name: Fish
+  m_Name: UI Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1811,7 +1811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1079061297
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1889,7 +1889,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1 &1094075017
 GameObject:
@@ -1904,6 +1904,7 @@ GameObject:
   - component: {fileID: 1094075019}
   - component: {fileID: 1094075022}
   - component: {fileID: 1094075023}
+  - component: {fileID: 1094075024}
   m_Layer: 0
   m_Name: Bobber
   m_TagString: Untagged
@@ -2017,6 +2018,26 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!95 &1094075024
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094075017}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b186aa524c4c7e34eabd44579d203c04, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1153166984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2745,7 +2766,7 @@ GameObject:
   - component: {fileID: 1568368879}
   - component: {fileID: 1568368880}
   m_Layer: 0
-  m_Name: Game Controller
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2764,7 +2785,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1568368880
 MonoBehaviour:
@@ -2780,7 +2801,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishes: []
   fishingRod: {fileID: 1853335357}
-  fish: {fileID: 1070173389}
+  bobber: {fileID: 1094075017}
+  uiFish: {fileID: 1070173389}
 --- !u!1 &1673749330
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,7 +3012,7 @@ GameObject:
   - component: {fileID: 1781151486}
   - component: {fileID: 1781151485}
   m_Layer: 0
-  m_Name: Touch Controller
+  m_Name: Touch Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3027,7 +3049,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1822356540
 GameObject:
@@ -3298,7 +3320,7 @@ Transform:
   - {fileID: 750702882}
   - {fileID: 1305091677}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1968258886
 GameObject:
@@ -3464,7 +3486,7 @@ Transform:
   - {fileID: 1420790818}
   - {fileID: 630422309}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2030268329
 PrefabInstance:
@@ -3661,7 +3683,7 @@ Transform:
   - {fileID: 5106100113635307664}
   - {fileID: 1414482842}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &910151584345045982
 GameObject:
