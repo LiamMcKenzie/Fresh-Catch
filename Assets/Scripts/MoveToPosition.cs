@@ -5,13 +5,13 @@ using UnityEngine;
 public class MoveToPosition : MonoBehaviour
 {
     public Vector3 target;
-    public float smoothSpeed = 3f;
+    public float smoothSpeed = 2f;
 
-    public float minimumXPos = -4;
-    public float maximumXPos = 4;
+    public float minimumXPos = -10;
+    public float maximumXPos = 10;
 
-    public float minimumZPos = -5f;
-    public float maximumZPos = 3.75f;
+    public float minimumZPos = 5f;
+    public float maximumZPos = 30f;
 
     public float lerpXPos;
     public float lerpZPos;

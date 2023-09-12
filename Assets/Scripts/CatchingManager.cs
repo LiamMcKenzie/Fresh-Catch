@@ -89,12 +89,17 @@ public class CatchingManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         uiFishAnimator.SetTrigger("LookUp");
         GameManager.instance.score += fishes[0].GetComponent<FishMovement>().fish.score;
+        GameManager.instance.activeFishes.Remove(fishes[0]);
         Destroy(fishes[0]);
         fishes.Clear();
         yield return new WaitForSeconds(4);
         //fishes.RemoveAt(0);
+        
         uiFishAnimator.SetTrigger("LookDown");
         camAnimator.SetTrigger("LookDown");
+        yield return new WaitForSeconds(1);
+        bobberAnimator.SetTrigger("Cast");
+        yield return new WaitForSeconds(1);
         camAnimator.SetBool("Catching", false);
     }
 }

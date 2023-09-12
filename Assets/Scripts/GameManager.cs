@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public int score;
+    public List<GameObject> activeFishes = new List<GameObject>();
     // Start is called before the first frame update
     void Awake()
     {

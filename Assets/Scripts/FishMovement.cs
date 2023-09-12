@@ -39,6 +39,7 @@ public class FishMovement : MonoBehaviour
 
     void Start()
     {
+        bobber = GameObject.Find("Bobber");
         rb = GetComponent<Rigidbody>();
         timer = swimInterval;
         swipeManager = SwipeDetect.instance;
