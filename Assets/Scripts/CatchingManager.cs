@@ -42,8 +42,10 @@ public class CatchingManager : MonoBehaviour
         if(SwipeDetect.instance.isSwipingUp && fishes.Count != 0 && camAnimator.GetBool("Catching") == false)
         {
             StartCoroutine(Catching());
-            Debug.Log(fishes[0].GetComponent<FishMovement>().fish.name);
-            fishes.RemoveAt(0);
+
+            
+            
+            
             //rodAnimator.enabled = true;
             //rodMovement.enabled = false;
             //camAnimator.SetBool("Catching", true);
@@ -86,7 +88,11 @@ public class CatchingManager : MonoBehaviour
         
         yield return new WaitForSeconds(1);
         uiFishAnimator.SetTrigger("LookUp");
+        GameManager.instance.score += fishes[0].GetComponent<FishMovement>().fish.score;
+        Destroy(fishes[0]);
+        fishes.Clear();
         yield return new WaitForSeconds(4);
+        //fishes.RemoveAt(0);
         uiFishAnimator.SetTrigger("LookDown");
         camAnimator.SetTrigger("LookDown");
         camAnimator.SetBool("Catching", false);
