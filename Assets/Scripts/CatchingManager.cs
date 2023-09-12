@@ -90,12 +90,17 @@ public class CatchingManager : MonoBehaviour
         
         yield return new WaitForSeconds(1);
         bobber.SetActive(false);
+        for(int i = 0; i < fishes.Count; i++)
+        {
+            fishes[i].GetComponent<FishMovement>().playerInFov = false;
+        }
 
         uiFishAnimator.SetTrigger("LookUp");
         GameManager.instance.score += fishes[0].GetComponent<FishMovement>().fish.score;
         GameManager.instance.activeFishes.Remove(fishes[0]);
         Destroy(fishes[0]);
         fishes.Clear();
+        
         yield return new WaitForSeconds(4);
         //fishes.RemoveAt(0);
         
@@ -104,6 +109,10 @@ public class CatchingManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         bobberAnimator.SetTrigger("Cast");
         yield return new WaitForSeconds(1);
+        for(int i = 0; i < fishes.Count; i++)
+        {
+            fishes[i].GetComponent<FishMovement>().bobber = GameObject.Find("Bobber");
+        }
         camAnimator.SetBool("Catching", false);
     }
 }
