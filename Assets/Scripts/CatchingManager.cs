@@ -63,6 +63,8 @@ public class CatchingManager : MonoBehaviour
             rodAnimator.enabled = false;
             rodMovement.enabled = true;
 
+            bobber.SetActive(true);
+
         }
 
     }
@@ -87,6 +89,8 @@ public class CatchingManager : MonoBehaviour
         camAnimator.SetTrigger("LookUp");
         
         yield return new WaitForSeconds(1);
+        bobber.SetActive(false);
+
         uiFishAnimator.SetTrigger("LookUp");
         GameManager.instance.score += fishes[0].GetComponent<FishMovement>().fish.score;
         GameManager.instance.activeFishes.Remove(fishes[0]);

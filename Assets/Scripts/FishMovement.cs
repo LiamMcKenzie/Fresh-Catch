@@ -47,7 +47,11 @@ public class FishMovement : MonoBehaviour
 
     void Update()
     {
-        CheckFOV();
+        if(bobber != null)
+        {
+            CheckFOV();
+
+        }
 
         if(catchTimer < 0)
         {
