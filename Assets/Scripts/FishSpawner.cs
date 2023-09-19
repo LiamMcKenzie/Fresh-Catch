@@ -22,7 +22,7 @@ public class FishSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.instance.activeFishes.Count < maxFish)
+        if(GameManager.instance.activeFishes.Count < maxFish && GameManager.instance.gameState == GameState.gameplay)
         {
             SpawnFish();
         }
