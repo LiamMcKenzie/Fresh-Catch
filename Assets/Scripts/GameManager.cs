@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int score;
     public List<GameObject> activeFishes = new List<GameObject>();
+    public float timeRemaining = 10; 
     // public enum GameState
     // {
     //     mainmenu,
@@ -28,7 +29,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (timeRemaining > 0 && gameState == GameState.gameplay)
+        {
+            timeRemaining -= Time.deltaTime;
+        }
     }
 
     public void StartGame()

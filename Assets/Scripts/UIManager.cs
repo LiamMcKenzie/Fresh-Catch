@@ -13,8 +13,8 @@ public class UIManager : MonoBehaviour
     public void PanelFadeIn()
     {
         //rectTransform.DOScale(0,1).SetEase( Ease.InBounce );
-        rectTransform.transform.localPosition = new Vector3(0f, -1000f, 0f);
-        rectTransform.DOAnchorPos(new Vector2(0f, 0f), fadeTime, false).SetEase(Ease.OutElastic);
+        rectTransform.transform.localPosition = new Vector3(0f, -2000f, 0f);
+        rectTransform.DOAnchorPos(new Vector2(0f, 0f), fadeTime, false).SetEase(Ease.InOutSine);
     }
 
     public void PanelFadeOut()
