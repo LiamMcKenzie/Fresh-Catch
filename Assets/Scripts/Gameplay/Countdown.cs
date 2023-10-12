@@ -20,7 +20,6 @@ public class Countdown : MonoBehaviour
         float roundUp = Mathf.Ceil (GameManager.instance.timeRemaining);
 
         if(roundUp == beepsLeft){
-            
             beepsLeft--;
             if(roundUp > 5){
                 audioSource.PlayOneShot(ding);
