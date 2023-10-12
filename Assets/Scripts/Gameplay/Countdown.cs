@@ -31,6 +31,7 @@ public class Countdown : MonoBehaviour
             else if (roundUp == 0)
             {
                 audioSource.PlayOneShot(finish, 0.5f);
+                GameManager.instance.gameState = GameState.gameover;
             }
             
             //Debug.Log(roundUp + "," + beepsLeft);  
