@@ -22,6 +22,8 @@ public class MoveToPosition : MonoBehaviour
 
     public GameObject lineAnchor;
 
+    public float zPos;
+
     // Update is called once per frame
 
     void Update()
@@ -40,6 +42,7 @@ public class MoveToPosition : MonoBehaviour
         target.x = Mathf.Clamp(lerpXPos, minimumXPos, maximumXPos);
         target.z = Mathf.Clamp(lerpZPos, minimumZPos, maximumZPos);
         
+        transform.position = new Vector3(transform.position.x, zPos, transform.position.z); 
         //transform.position = pos;
 
         //mouseDown = Input.GetMouseButton(0);
