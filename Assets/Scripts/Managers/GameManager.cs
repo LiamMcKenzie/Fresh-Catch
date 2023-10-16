@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameState gameState;
+    public bool isPaused;
     public static GameManager instance;
     public int score;
     public List<GameObject> activeFishes = new List<GameObject>();

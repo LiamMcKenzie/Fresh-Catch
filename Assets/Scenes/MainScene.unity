@@ -11041,7 +11041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1329158726
 Transform:
   m_ObjectHideFlags: 0
@@ -12123,7 +12123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishes: []
-  fishingRod: {fileID: 1329158725}
+  fishingRod: {fileID: 1853335357}
   bobber: {fileID: 1094075017}
   uiFish: {fileID: 1070173389}
 --- !u!114 &1568368881

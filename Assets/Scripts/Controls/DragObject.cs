@@ -21,7 +21,7 @@ public class DragObject : MonoBehaviour
 
 
     void Update(){
-        if(Input.GetMouseButton(0)){
+        if(Input.GetMouseButton(0) && GameManager.instance.gameState == GameState.gameplay && GameManager.instance.isPaused == false){
             transform.position = GetMousePositionOnXZPlane();
         }
 

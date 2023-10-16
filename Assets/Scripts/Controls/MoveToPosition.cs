@@ -58,7 +58,10 @@ public class MoveToPosition : MonoBehaviour
     {
         //Vector3 newPosition = target.transform.position - target.transform.forward * offset.z - target.transform.up * offset.y;
         //transform.position = Vector3.Slerp(transform.position, newPosition, Time.deltaTime * 5);
+        if(GameManager.instance.gameState == GameState.gameplay && GameManager.instance.isPaused == false)
+        {
+            transform.position = Vector3.Slerp(transform.position, target, Time.deltaTime * smoothSpeed);
 
-        transform.position = Vector3.Slerp(transform.position, target, Time.deltaTime * smoothSpeed);
+        }
     }
 }
