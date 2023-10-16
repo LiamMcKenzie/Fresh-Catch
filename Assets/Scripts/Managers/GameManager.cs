@@ -9,21 +9,21 @@ public class GameManager : MonoBehaviour
     public int score;
     public List<GameObject> activeFishes = new List<GameObject>();
     public float timeRemaining = 10; 
-    // public enum GameState
-    // {
-    //     mainmenu,
-    //     gameplay,
-    //     gameover,
-    //     catching
-    // }
+    public float maxTime;
+
+    public GameObject player;
+    public GameObject TitleUI;
+    public GameObject GameplayUI;
     // Start is called before the first frame update
     void Awake()
     {
+        timeRemaining = maxTime;
         gameState = GameState.mainmenu;
         if(instance == null)
         {
             instance = this;
         }
+        
     }
 
     // Update is called once per frame
@@ -33,10 +33,33 @@ public class GameManager : MonoBehaviour
         {
             timeRemaining -= Time.deltaTime;
         }
+
+        if(timeRemaining <= 0)
+        {
+            GameFinish();
+        }
     }
 
     public void StartGame()
     {
         gameState = GameState.gameplay;
+        timeRemaining = maxTime;
+        player.SetActive(true);
+        player.transform.position = Vector3.zero;
+        //player = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
+    }
+
+    public void GameFinish()
+    {
+        gameState = GameState.gameover;
+        foreach(GameObject fish in activeFishes)
+        {
+            Destroy(fish); 
+        }
+
+        activeFishes.Clear();
+        GameplayUI.SetActive(false);
+        TitleUI.SetActive(true);
+        player.SetActive(false);
     }
 }

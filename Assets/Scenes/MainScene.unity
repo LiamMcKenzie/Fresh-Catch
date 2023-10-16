@@ -7091,7 +7091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &515128187
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9860,7 +9860,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1329158725}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -12123,7 +12123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishes: []
-  fishingRod: {fileID: 1853335357}
+  fishingRod: {fileID: 1329158725}
   bobber: {fileID: 1094075017}
   uiFish: {fileID: 1070173389}
 --- !u!114 &1568368881
@@ -12141,7 +12141,11 @@ MonoBehaviour:
   gameState: 0
   score: 0
   activeFishes: []
-  timeRemaining: 15
+  timeRemaining: 0
+  maxTime: 15
+  player: {fileID: 1329158725}
+  TitleUI: {fileID: 854443033}
+  GameplayUI: {fileID: 515128186}
 --- !u!1 &1576766445
 GameObject:
   m_ObjectHideFlags: 0
@@ -14654,7 +14658,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bobber
       value: 
-      objectReference: {fileID: 1094075017}
+      objectReference: {fileID: 0}
     - target: {fileID: 8884927962328476849, guid: 6d4cc2c2cc83b8648aa346a2aa9a83de,
         type: 3}
       propertyPath: m_RootOrder
