@@ -72,6 +72,7 @@ public class CatchingManager : MonoBehaviour
     //StartCoroutine(SendRequest());
     private IEnumerator Catching(){
         camAnimator.SetBool("Catching", true);
+        GameManager.instance.gameState = GameState.catching;
 
         bobberAnimator.enabled = true;
         //bobberMovement.enabled = false;
@@ -114,5 +115,6 @@ public class CatchingManager : MonoBehaviour
             fishes[i].GetComponent<FishMovement>().bobber = GameObject.Find("Bobber");
         }
         camAnimator.SetBool("Catching", false);
+        GameManager.instance.gameState = GameState.gameplay;
     }
 }
