@@ -21,7 +21,7 @@ public class DragObject : MonoBehaviour
 
 
     void Update(){
-        if(Input.GetMouseButton(0) && GameManager.instance.gameState == GameState.gameplay && GameManager.instance.isPaused == false){
+        if(Input.GetMouseButton(0) && GameManager.instance.gameState == GameState.gameplay && GameManager.instance.isPaused == false && (Input.mousePosition.y / Screen.height) < 0.8f){
             transform.position = GetMousePositionOnXZPlane();
         }
 
@@ -34,6 +34,8 @@ public class DragObject : MonoBehaviour
         //touchcount = Input.touchCount;
         lerpXPos = Mathf.InverseLerp(minimumXPos, maximumXPos, transform.position.x);
         lerpZPos = Mathf.InverseLerp(minimumZPos, maximumZPos, transform.position.z);
+
+
     }
 
     static Plane XZPlane = new Plane(Vector3.up, Vector3.zero);
