@@ -40,8 +40,8 @@ public class FishMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        timer = swimInterval;
         swipeManager = SwipeDetect.instance;
+        SpawnMovement();
     }
 
     void Update()
@@ -108,6 +108,14 @@ public class FishMovement : MonoBehaviour
 
     }
 
+    void SpawnMovement()
+    {
+        timer = Random.Range(swimInterval * 0.5f, swimInterval * 1.5f);
+        float randomRotationY = Random.Range(0f, 360f);
+        targetRotation = Quaternion.Euler(0f, randomRotationY, 0f);
+        rb.velocity = transform.forward.normalized * moveSpeed;
+    }
+
     void RandomMovement()
     {
         //randomizes a new direction
@@ -131,7 +139,7 @@ public class FishMovement : MonoBehaviour
 
     IEnumerator MovementCoroutine()
     {
-        timer = swimInterval;
+        timer = Random.Range(swimInterval * 0.5f, swimInterval * 1.5f);
         
         while (Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
         {

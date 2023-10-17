@@ -20,8 +20,6 @@ public class CatchingManager : MonoBehaviour
 
     public GameObject uiFish;
 
-
-
     void Awake()
     {
         if(instance == null)

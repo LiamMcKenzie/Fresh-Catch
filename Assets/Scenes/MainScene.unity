@@ -7753,7 +7753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &732318198
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12234,7 +12234,7 @@ MonoBehaviour:
   maximumZPos: 30
   fishPrefab: {fileID: 8072221041569986059, guid: 6d4cc2c2cc83b8648aa346a2aa9a83de,
     type: 3}
-  maxFish: 3
+  maxFish: 5
 --- !u!4 &1557209805
 Transform:
   m_ObjectHideFlags: 0
