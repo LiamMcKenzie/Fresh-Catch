@@ -6,9 +6,15 @@
 Mobile game project for Otago Polytechnic class
 
 – Link to the mobile game on Google Play Store or Apple App Store.
+
 – What is the mobile game’s concept and genre?
+
 – What is the mobile game’s core gameplay loop?
+
 – How do the players interact with the mobile game and control the characters or objects?
+
 – What art style is used?
+
 – What audio and sound effects are used?
+
 – If applicable, known bugs
