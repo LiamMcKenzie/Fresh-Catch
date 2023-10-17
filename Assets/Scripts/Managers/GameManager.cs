@@ -62,5 +62,9 @@ public class GameManager : MonoBehaviour
         GameplayUI.SetActive(false);
         TitleUI.SetActive(true);
         player.SetActive(false);
+
+        if(score > GameSettings.highScore){ //if our score is better than the high score it overwrites it
+            GameSettings.highScore = score;
+        }
     }
 }
