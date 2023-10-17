@@ -1,4 +1,4 @@
 public static class GameSettings
 {
-    public static int highScore = 0;
+    public static float highScore = 0;
 }

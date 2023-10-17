@@ -8,5 +8,5 @@ public class Fish : ScriptableObject
     public new string name;
     public string description;
 
-    public int score;
+    public float score;
 }

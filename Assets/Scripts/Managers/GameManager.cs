@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     public bool isPaused;
     public static GameManager instance;
-    public int score;
+    public float score;
     public List<GameObject> activeFishes = new List<GameObject>();
     public float timeRemaining = 10; 
     public float maxTime;
