@@ -31,7 +31,7 @@ public class FishSpawner : MonoBehaviour
     void SpawnFish()
     {
 
-        Vector3 randomSpawnPosition = new Vector3(Random.Range(minimumXPos, maximumXPos), 1, Random.Range(minimumZPos, maximumZPos));
+        Vector3 randomSpawnPosition = new Vector3(Random.Range(minimumXPos, maximumXPos), 0, Random.Range(minimumZPos, maximumZPos));
         GameObject newFish = Instantiate(fishPrefab, randomSpawnPosition, Quaternion.Euler(new Vector3(0, Random.Range(0f, 360f), 0)));
         GameManager.instance.activeFishes.Add(newFish);
         //newFish.GetComponent<FishMovement>().Fish;
