@@ -5,6 +5,7 @@ using UnityEngine;
 public class FishMovement : MonoBehaviour
 {
     public Fish fish;
+    public int newScore;
 
     private SwipeDetect swipeManager;
     [Header("Movement")]

@@ -95,7 +95,7 @@ public class CatchingManager : MonoBehaviour
         }
 
         uiFishAnimator.SetTrigger("LookUp");
-        GameManager.instance.score += fishes[0].GetComponent<FishMovement>().fish.score;
+        GameManager.instance.score += fishes[0].GetComponent<FishMovement>().newScore;
         GameManager.instance.activeFishes.Remove(fishes[0]);
         Destroy(fishes[0]);
         fishes.Clear();

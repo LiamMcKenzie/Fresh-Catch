@@ -12316,7 +12316,7 @@ MonoBehaviour:
   score: 0
   activeFishes: []
   timeRemaining: 0
-  maxTime: 15
+  maxTime: 90
   player: {fileID: 1329158725}
   TitleUI: {fileID: 854443033}
   GameplayUI: {fileID: 515128186}

@@ -53,9 +53,7 @@ public class FishSpawner : MonoBehaviour
             break;
         }
 
-        newFish.GetComponent<FishMovement>().fish.score *= sizeModifier;
+        newFish.GetComponent<FishMovement>().newScore = Mathf.RoundToInt(newFish.GetComponent<FishMovement>().fish.score * sizeModifier);
         newFish.transform.localScale = new Vector3(newFish.transform.localScale.x * sizeModifier,newFish.transform.localScale.y * sizeModifier,newFish.transform.localScale.z * sizeModifier);
-        Debug.Log(randomSize);
-        Debug.Log(newFish.GetComponent<FishMovement>().fish.score);
     }
 }
