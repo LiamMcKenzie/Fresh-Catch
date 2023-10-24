@@ -12349,6 +12349,7 @@ MonoBehaviour:
   fishingRod: {fileID: 1853335357}
   bobber: {fileID: 1094075017}
   uiFish: {fileID: 1070173389}
+  caughtFish: {fileID: 0}
 --- !u!114 &1568368881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14938,35 +14939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fish
       objectReference: {fileID: 0}
-    - target: {fileID: 8072221041569986059, guid: 6d4cc2c2cc83b8648aa346a2aa9a83de,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8072221041569986166, guid: 6d4cc2c2cc83b8648aa346a2aa9a83de,
-        type: 3}
-      propertyPath: bobber
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8884927962328476849, guid: 6d4cc2c2cc83b8648aa346a2aa9a83de,
         type: 3}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8884927962328476849, guid: 6d4cc2c2cc83b8648aa346a2aa9a83de,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8884927962328476849, guid: 6d4cc2c2cc83b8648aa346a2aa9a83de,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8884927962328476849, guid: 6d4cc2c2cc83b8648aa346a2aa9a83de,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8884927962328476849, guid: 6d4cc2c2cc83b8648aa346a2aa9a83de,
         type: 3}
@@ -15017,11 +14993,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8884927962328476849, guid: 6d4cc2c2cc83b8648aa346a2aa9a83de,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d4cc2c2cc83b8648aa346a2aa9a83de, type: 3}

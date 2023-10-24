@@ -40,6 +40,7 @@ public class FishMovement : MonoBehaviour
 
     void Start()
     {
+        SetMaterial();
         rb = GetComponent<Rigidbody>();
         swipeManager = SwipeDetect.instance;
         SpawnMovement();
@@ -107,6 +108,17 @@ public class FishMovement : MonoBehaviour
             }
         }
 
+    }
+
+    void SetMaterial()
+    {
+        SkinnedMeshRenderer renderer = this.gameObject.transform.Find("Fish Model Renderer").GetComponent<SkinnedMeshRenderer>();
+
+        //https://discussions.unity.com/t/change-the-color-of-a-material-for-only-one-object/65028/5
+
+        //this.gameObject.GetComponent().material = Instantiate(Resources.Load(“Material”) as Material);
+        //Debug.Log(this.gameObject.transform.Find("Fish Model Renderer"));
+        //this.gameObject.transform.Find("Fish Model Renderer").GetComponent<SkinnedMeshRenderer>().material.color = Color.cyan;
     }
 
     void SpawnMovement()

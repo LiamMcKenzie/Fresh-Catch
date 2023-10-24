@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4187116841435984934}
   - component: {fileID: 9047657857120013785}
   m_Layer: 0
-  m_Name: Fish
+  m_Name: Fish Model Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8991194304993500656}
-  m_RootOrder: 1
+  m_Father: {fileID: 8884927962328476849}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &9047657857120013785
 SkinnedMeshRenderer:
@@ -415,6 +415,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4187116841435984934}
   - {fileID: 8991194304993500656}
   - {fileID: 8991194305775783724}
   m_Father: {fileID: 0}
@@ -433,6 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fish: {fileID: 11400000, guid: b0259764bef223a4db2a4750a5670639, type: 2}
+  newScore: 0
   moveSpeed: 10
   swimInterval: 4
   rotationSpeed: 5
@@ -605,7 +607,7 @@ GameObject:
   - component: {fileID: 8991194304993500656}
   - component: {fileID: 8991194304993500657}
   m_Layer: 0
-  m_Name: Fish Model
+  m_Name: Fish Bones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -624,9 +626,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 575703990863264815}
-  - {fileID: 4187116841435984934}
   m_Father: {fileID: 8884927962328476849}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8991194304993500657
 Animator:
@@ -680,7 +681,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8884927962328476849}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &8991194305775783720
 MeshFilter:
