@@ -15,3 +15,4 @@ MonoBehaviour:
   listOfFishes:
   - {fileID: 11400000, guid: 44527cd70f5669a41a2d5aa50eaa2fee, type: 2}
   - {fileID: 11400000, guid: b0259764bef223a4db2a4750a5670639, type: 2}
+  - {fileID: 11400000, guid: aad5b705a7f55f3478616e05aaebc867, type: 2}
