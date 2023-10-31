@@ -116,9 +116,18 @@ public class FishMovement : MonoBehaviour
 
         //https://discussions.unity.com/t/change-the-color-of-a-material-for-only-one-object/65028/5
 
+        Material[] mats = renderer.materials;
+
+        for (int i = 0; i < fish.colors.Length; i++)
+        {
+            mats[i].color = fish.colors[i];
+        }
+
+        //renderer.material.color = Color.cyan;
+        renderer.materials = mats;
+        //renderer.material = Instantiate(Resources.Load("Material") as Material);
         //this.gameObject.GetComponent().material = Instantiate(Resources.Load(“Material”) as Material);
         //Debug.Log(this.gameObject.transform.Find("Fish Model Renderer"));
-        //this.gameObject.transform.Find("Fish Model Renderer").GetComponent<SkinnedMeshRenderer>().material.color = Color.cyan;
     }
 
     void SpawnMovement()

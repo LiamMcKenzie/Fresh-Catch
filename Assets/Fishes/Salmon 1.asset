@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f6748a4b68014749bd56dafaf3469ad, type: 3}
-  m_Name: Salmon
+  m_Name: Salmon 1
   m_EditorClassIdentifier: 
   name: Salmon
   description: pretty basic i guess
   score: 100
   colors:
-  - {r: 1, g: 0.2028302, b: 0.2028302, a: 0}
-  - {r: 0.5778941, g: 1, b: 0.36320752, a: 0}
-  - {r: 0.20287468, g: 0.73302484, b: 0.9150943, a: 0}
+  - {r: 1, g: 0.8555574, b: 0.0047169924, a: 0}
+  - {r: 0.9056604, g: 0.6251624, b: 0.06407974, a: 0}
+  - {r: 0.81470275, g: 0.85439855, b: 0.8679245, a: 0}

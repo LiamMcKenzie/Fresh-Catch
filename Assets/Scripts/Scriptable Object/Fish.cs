@@ -9,5 +9,5 @@ public class Fish : ScriptableObject
     public string description;
 
     public float score;
-    public Color topColor;
+    public Color[] colors;
 }
