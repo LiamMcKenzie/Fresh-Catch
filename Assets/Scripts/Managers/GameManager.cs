@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
             timeRemaining -= Time.deltaTime;
         }
 
-        if(timeRemaining <= 0)
+        if(timeRemaining <= 0 && gameState == GameState.gameplay)
         {
             GameFinish();
         }
