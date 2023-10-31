@@ -85,6 +85,7 @@ public class CatchingManager : MonoBehaviour
         bobber.SetActive(false);
 
         GameManager.instance.score += caughtFish.GetComponent<FishMovement>().newScore;
+        Debug.Log(GameManager.instance.score + caughtFish.GetComponent<FishMovement>().newScore);
         
         yield return new WaitForSeconds(2);
         Camera.main.GetComponent<CameraSwitcher>().SwitchPriority(0);

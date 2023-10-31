@@ -64,7 +64,9 @@ public class GameManager : MonoBehaviour
         player.SetActive(false);
 
         if(score > GameSettings.highScore){ //if our score is better than the high score it overwrites it
-            GameSettings.highScore = score;
+            //GameSettings.highScore = score;
+            PlayerPrefs.SetInt("HighScore", Mathf.FloorToInt(score));
+            SetHighScoreText.Instance.UpdateText();
         }
     }
 }

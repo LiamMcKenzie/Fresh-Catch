@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f6748a4b68014749bd56dafaf3469ad, type: 3}
-  m_Name: Salmon 1
+  m_Name: Bass
   m_EditorClassIdentifier: 
-  name: Salmon
-  description: pretty basic i guess
+  name: Bass
+  description: no treble
   score: 100
   colors:
-  - {r: 1, g: 0.8555574, b: 0.0047169924, a: 0}
-  - {r: 0.9056604, g: 0.6251624, b: 0.06407974, a: 0}
-  - {r: 0.81470275, g: 0.85439855, b: 0.8679245, a: 0}
+  - {r: 0.894, g: 0.725928, b: 0.641892, a: 1}
+  - {r: 0.39685494, g: 0.41799998, b: 0.21359798, a: 1}
+  - {r: 0.8117647, g: 0.58233786, b: 0.22485879, a: 1}
