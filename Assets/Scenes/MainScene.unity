@@ -9451,7 +9451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070173389}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.35, y: 1.32, z: 10}
+  m_LocalPosition: {x: -0.35, y: 1.32, z: 12.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12331,6 +12331,9 @@ MonoBehaviour:
   bobber: {fileID: 1094075017}
   uiFish: {fileID: 1070173389}
   caughtFish: {fileID: 0}
+  fishName: {fileID: 1644508708}
+  fishDescription: {fileID: 118836893}
+  gainedPoints: {fileID: 1683523167}
 --- !u!114 &1568368881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12635,7 +12638,7 @@ GameObject:
   - component: {fileID: 1644508709}
   - component: {fileID: 1644508708}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Fish Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12868,9 +12871,8 @@ GameObject:
   - component: {fileID: 1683523165}
   - component: {fileID: 1683523168}
   - component: {fileID: 1683523167}
-  - component: {fileID: 1683523166}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Gained Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12896,18 +12898,6 @@ RectTransform:
   m_AnchoredPosition: {x: 124.4, y: -202}
   m_SizeDelta: {x: 195.1, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1683523166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1683523164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3caa4772df3e854c95a0b4f95847032, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1683523167
 MonoBehaviour:
   m_ObjectHideFlags: 0

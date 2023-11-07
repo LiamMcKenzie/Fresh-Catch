@@ -5,9 +5,14 @@ using UnityEngine;
 public class FishCaught : MonoBehaviour
 {
     private Vector3 startPosition;
-    public GameObject targetObject;
     private Vector3 targetPosition;
-    public float duration = 2.0f;
+
+    public GameObject targetObject;
+    
+    private Quaternion startRotation;
+    private Quaternion targetRotation;
+
+    public float duration = 0.001f;
     private float startTime;
     private bool isLerping = false;
 
@@ -15,6 +20,8 @@ public class FishCaught : MonoBehaviour
     {
         // Initialize the start and target positions
         startPosition = transform.position;
+        startRotation = transform.rotation;
+
         targetObject = Camera.main.transform.Find("UI Fish").gameObject;
     }
 
@@ -23,6 +30,7 @@ public class FishCaught : MonoBehaviour
         if(isLerping)
         {
             targetPosition = targetObject.transform.position; // Change this to your desired target position
+            targetRotation = targetObject.transform.rotation; 
             // Calculate the time that has passed since the movement started
             float elapsedTime = Time.time - startTime;
 
@@ -31,11 +39,15 @@ public class FishCaught : MonoBehaviour
                 // Interpolate between the start and target positions
                 float t = elapsedTime / duration;
                 transform.position = Vector3.Lerp(startPosition, targetPosition, t);
+                
+                transform.rotation = Quaternion.Slerp(startRotation, targetRotation, t);
+
             }
             else
             {
                 // The movement is complete
                 transform.position = targetPosition;
+                transform.rotation = targetRotation;
                 isLerping = false;
             }
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CatchingManager : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class CatchingManager : MonoBehaviour
     public GameObject uiFish;
     public GameObject caughtFish;
 
+    public TMP_Text fishName;
+    public TMP_Text fishDescription;
+    public TMP_Text gainedPoints;
+
     void Awake()
     {
         if(instance == null)
@@ -32,6 +37,7 @@ public class CatchingManager : MonoBehaviour
         //uiFishAnimator = uiFish.GetComponent<Animator>();
         //bobberAnimator = bobber.GetComponent<Animator>();
 
+        ClearText();
         rodMovement = fishingRod.GetComponent<DragObject>();
         bobberMovement = bobber.GetComponent<MoveToPosition>();
     }
@@ -41,25 +47,12 @@ public class CatchingManager : MonoBehaviour
         if(SwipeDetect.instance.isSwipingUp && fishes.Count != 0 && GameManager.instance.gameState != GameState.catching)
         {
             StartCoroutine(Catching());
-
-            
-            
-            
-            //rodAnimator.enabled = true;
-            //rodMovement.enabled = false;
-            //camAnimator.SetBool("Catching", true);
-            //camAnimator.SetTrigger("LookUp");
-
-            //rodAnimator.SetTrigger("Catch");
-            //fishAnimator.SetTrigger("LookUp");
         }
 
         if(GameManager.instance.gameState != GameState.catching)
         {
-            //bobberAnimator.enabled = false;
             bobberMovement.enabled = true;
 
-            //rodAnimator.enabled = false;
             rodMovement.enabled = true;
 
             bobber.SetActive(true);
@@ -68,27 +61,30 @@ public class CatchingManager : MonoBehaviour
 
     }
 
-    //StartCoroutine(SendRequest());
     private IEnumerator Catching(){
         GameManager.instance.gameState = GameState.catching;
         caughtFish = fishes[0];
         fishes.Clear();
 
         rodMovement.enabled = false;
-
+        FishMovement fishScript = caughtFish.GetComponent<FishMovement>();
 
         yield return new WaitForSeconds(0.1f);
         Camera.main.GetComponent<CameraSwitcher>().SwitchPriority(1);
+        caughtFish.GetComponent<FishCaught>().StartLerp();
+        fishScript.enabled = false;
 
-        
+        UpdateText(fishScript);
         yield return new WaitForSeconds(1);
         bobber.SetActive(false);
 
-        GameManager.instance.score += caughtFish.GetComponent<FishMovement>().newScore;
+        GameManager.instance.score += fishScript.newScore;
         //Debug.Log(GameManager.instance.score + caughtFish.GetComponent<FishMovement>().newScore);
         
         yield return new WaitForSeconds(2);
         Camera.main.GetComponent<CameraSwitcher>().SwitchPriority(0);
+        ClearText();
+
 
         yield return new WaitForSeconds(1);
 
@@ -149,5 +145,19 @@ public class CatchingManager : MonoBehaviour
         
         //camAnimator.SetBool("Catching", false);
         GameManager.instance.gameState = GameState.gameplay;
+    }
+
+    public void UpdateText(FishMovement fishScript)
+    {
+        fishName.text = fishScript.fish.name;
+        fishDescription.text = fishScript.fish.description;
+        gainedPoints.text = fishScript.newScore.ToString();
+    }
+
+    public void ClearText()
+    {
+        fishName.text = "";
+        fishDescription.text = "";
+        gainedPoints.text = "";
     }
 }
