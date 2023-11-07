@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6748a4b68014749bd56dafaf3469ad, type: 3}
   m_Name: Golden Milkfish
   m_EditorClassIdentifier: 
-  name: Golden Milkfish
-  description: its scales are made with gold
+  name: Golden Bangus
+  description: Based on a true story
   score: 200
   colors:
   - {r: 0.9960785, g: 0.9960785, b: 0.9960785, a: 1}

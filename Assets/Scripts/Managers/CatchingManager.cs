@@ -89,6 +89,8 @@ public class CatchingManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         GameManager.instance.gameState = GameState.gameplay;
+        Destroy(caughtFish);
+        caughtFish = null;
     }
 
     private IEnumerator CatchingOLD(){
