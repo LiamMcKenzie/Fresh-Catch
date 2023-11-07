@@ -63,8 +63,8 @@ public class CatchingManager : MonoBehaviour
 
     private IEnumerator Catching(){
         GameManager.instance.gameState = GameState.catching;
+        bobber.SetActive(false);
         caughtFish = fishes[0];
-        fishes.Clear();
 
         rodMovement.enabled = false;
         FishMovement fishScript = caughtFish.GetComponent<FishMovement>();
@@ -73,10 +73,9 @@ public class CatchingManager : MonoBehaviour
         Camera.main.GetComponent<CameraSwitcher>().SwitchPriority(1);
         caughtFish.GetComponent<FishCaught>().StartLerp();
         fishScript.enabled = false;
-
+        fishes.Clear();
         UpdateText(fishScript);
         yield return new WaitForSeconds(1);
-        bobber.SetActive(false);
 
         GameManager.instance.score += fishScript.newScore;
         //Debug.Log(GameManager.instance.score + caughtFish.GetComponent<FishMovement>().newScore);
@@ -84,11 +83,13 @@ public class CatchingManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         Camera.main.GetComponent<CameraSwitcher>().SwitchPriority(0);
         ClearText();
+        fishes.Clear();
 
 
         yield return new WaitForSeconds(1);
 
         GameManager.instance.gameState = GameState.gameplay;
+        GameManager.instance.activeFishes.Remove(caughtFish);
         Destroy(caughtFish);
         caughtFish = null;
     }
