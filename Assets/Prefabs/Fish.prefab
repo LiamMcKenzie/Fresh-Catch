@@ -396,6 +396,7 @@ GameObject:
   - component: {fileID: 8072221041569986057}
   - component: {fileID: 8072221041569986164}
   - component: {fileID: 8072221041569986167}
+  - component: {fileID: 7720465862708108383}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -501,6 +502,20 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &7720465862708108383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072221041569986059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050ecd4eb3afcf7459c6d6a3f774e402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {x: 0, y: 0, z: 0}
+  duration: 2
 --- !u!1 &8099338680095588200
 GameObject:
   m_ObjectHideFlags: 0
