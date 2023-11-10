@@ -59,5 +59,6 @@ public class FishCaught : MonoBehaviour
     {
         isLerping = true;
         startTime = Time.time;
+        gameObject.GetComponent<FishMovement>().alertIcon.SetActive(false);
     }
 }

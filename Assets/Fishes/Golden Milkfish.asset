@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Golden Milkfish
   m_EditorClassIdentifier: 
   name: Golden Bangus
-  description: Based on a true story
+  description: based on a true story
   score: 200
   colors:
   - {r: 0.9960785, g: 0.9960785, b: 0.9960785, a: 1}

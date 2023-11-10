@@ -154,7 +154,7 @@ public class CatchingManager : MonoBehaviour
     {
         fishName.text = fishScript.fish.name;
         fishDescription.text = fishScript.fish.description;
-        gainedPoints.text = fishScript.newScore.ToString();
+        gainedPoints.text = "+" + fishScript.newScore.ToString();
     }
 
     public void ClearText()
