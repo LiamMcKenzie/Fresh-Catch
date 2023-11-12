@@ -48,4 +48,10 @@ The countdown timer was something I made myself im Ableton Live 11.
 
 I would have liked to add more sound effects but didn't have enough time
 
-– If applicable, known bugs
+### If applicable, known bugs
+- If the player quits to main menu when catching a fish, the camera will get stuck.
+- The list of fishes will sometimes not clear correctly when catching a fish, which causes lots of other bugs.
+- Sometimes fishes will stay attacted even after catching another one, this causes catching animations to chain unnaturally.
+- The game has noticable input delay
+
+
