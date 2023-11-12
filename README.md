@@ -3,13 +3,14 @@
 
 <a name="about"></a>
 ## About
-Mobile game project for Otago Polytechnic class
+Fresh Catch is a fishing game made for android devices, this project was made for the Mobile App Development paper at Otago Polytechnic
 
 ### Link to the mobile game on Google Play Store or Apple App Store.
 I had trouble logging into the shared google play account
 
 ### What is the mobile game’s concept and genre?
-I wanted to make a 
+I wanted to make a casual game, there was inspiration from endless games such as fruit ninja. However I felt like endless gameplay wouldn't fit so I added a timer.
+The core gameplay was heavily inspired by the fishing minigame from Wii Play. This uses motion controls for its gameplay, so I wondered if the game would work on mobile using touch controls.
 
 ### What is the mobile game’s core gameplay loop?
 The player is given 60 seconds to catch as many fish as possible, with certain fishes being worth more.
