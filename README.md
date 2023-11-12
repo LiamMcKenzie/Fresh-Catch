@@ -9,16 +9,25 @@ Fresh Catch is a fishing game made for android devices, this project was made fo
 I had trouble logging into the shared google play account
 
 ### What is the mobile game’s concept and genre?
-I wanted to make a casual game, there was inspiration from endless games such as fruit ninja. However I felt like endless gameplay wouldn't fit so I added a timer.
 The core gameplay was heavily inspired by the fishing minigame from Wii Play. This uses motion controls for its gameplay, so I wondered if the game would work on mobile using touch controls.
 
+There was also inspiration from endless mobile games such as fruit ninja. However I felt like endless gameplay wouldn't fit so I added a timer.
+
+
 ### What is the mobile game’s core gameplay loop?
-The player is given 60 seconds to catch as many fish as possible, with certain fishes being worth more.
-So the gameplay loop is trying to achieve a high score. 
+The player will move a fishing rod around to try and attract fish. Once a fish is attracted it will show an exclamation mark above its body and start moving towards the hook. 
+
+When it's been attracted for more than a few seconds the exclamation mark will turn yellow, meaning the player has to quickly swipe up to catch the fish. 
+
+
+The player is given 60 seconds to catch as many fish as possible, with certain fishes being worth more. High scores are saved even when the game is closed, so the player is encouraged to try and beat this score
+
 
 ### How do the players interact with the mobile game and control the characters or objects?
+![Image1](https://github.com/LiamMcKenzie/Fresh-Catch/assets/90590068/3cffe0fd-91ec-4f7f-90cc-7e726ec0227f)
 There is a fishing rod on the bottom half of the screen, the player moves this fishing rod by dragging it around.
 This will move the bobber around on the top half of the screen, which is what the fish are attracted to. 
+
 
 ### What art style is used?
 
