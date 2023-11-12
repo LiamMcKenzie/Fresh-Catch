@@ -15,6 +15,14 @@ Mobile game project for Otago Polytechnic class
 
 ### What art style is used?
 
+![Screenshot 2023-11-13 093125](https://github.com/LiamMcKenzie/Fresh-Catch/assets/90590068/7063e1ac-b71f-4fa9-847f-5ad5dc7bd2e2)
+Part of my artstyle was inspired by a deserted island model I made. I really liked how vibrant and cartoony it looked, so I wanted to continue this look on my mobile game.
+The game ended up having a low poly look because of the fish model that I used. This also fit with the low poly look of my island
+
+https://skfb.ly/oFEvy - my island model
+
+https://quaternius.itch.io/lowpoly-animated-fish - fish models
+
 ### What audio and sound effects are used?
 
 I added an ocean ambience track and a countdown ding sound effect. I found the ocean sound on freesound.org.
