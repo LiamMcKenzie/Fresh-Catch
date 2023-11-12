@@ -5,13 +5,19 @@
 ## About
 Mobile game project for Otago Polytechnic class
 
-– Link to the mobile game on Google Play Store or Apple App Store.
+### Link to the mobile game on Google Play Store or Apple App Store.
+I had trouble logging into the shared google play account
 
-– What is the mobile game’s concept and genre?
+### What is the mobile game’s concept and genre?
+I wanted to make a 
 
 ### What is the mobile game’s core gameplay loop?
+The player is given 60 seconds to catch as many fish as possible, with certain fishes being worth more.
+So the gameplay loop is trying to achieve a high score. 
 
 ### How do the players interact with the mobile game and control the characters or objects?
+There is a fishing rod on the bottom half of the screen, the player moves this fishing rod by dragging it around.
+This will move the bobber around on the top half of the screen, which is what the fish are attracted to. 
 
 ### What art style is used?
 
