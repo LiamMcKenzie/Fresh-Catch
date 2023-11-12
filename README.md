@@ -11,7 +11,9 @@ I had trouble logging into the shared google play account
 ### What is the mobile game’s concept and genre?
 The core gameplay was heavily inspired by the fishing minigame from Wii Play. This uses motion controls for its gameplay, so I wondered if the game would work on mobile using touch controls.
 
-There was also inspiration from endless mobile games such as fruit ninja. However I felt like endless gameplay wouldn't fit so I added a timer.
+There was also inspiration from endless mobile games such as fruit ninja. These sorts of games utilise high scores and short gameplay to keep playeers coming back. However I felt like endless gameplay wouldn't work so I added a timer to keep the game short.
+
+This game is targeted towards casual gamers, I think designing simple but addicting games is very interesting. Casual games also tend to be more fun on mobile devices compared to hardcore games.
 
 
 ### What is the mobile game’s core gameplay loop?
