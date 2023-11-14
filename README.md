@@ -6,7 +6,7 @@
 Fresh Catch is a fishing game made for android devices, this project was made for the Mobile App Development paper at Otago Polytechnic
 
 ### Link to the mobile game on Google Play Store or Apple App Store.
-Google play upload is currently in review
+[Google play](https://play.google.com/store/apps/details?id=com.LiamMcKenzie.FreshCatch)
 
 ### What is the mobile game’s concept and genre?
 The core gameplay was heavily inspired by the fishing minigame from Wii Play. This uses motion controls for its gameplay, so I wondered if the game would work on mobile using touch controls.
